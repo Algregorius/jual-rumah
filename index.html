@@ -9,11 +9,16 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
-      html { scroll-behavior: smooth; }
-    </style>
+        html {
+          scroll-behavior: smooth;
+        }
+        input, button {
+          transition: all 0.3s ease-in-out;
+        }
+      </style>
   </head>
   <body class="bg-gray-100 text-gray-800 font-sans">
-    <header class="bg-blue-700 text-white py-12 shadow-lg text-center">
+    <header class="bg-emerald-700 text-white py-12 shadow-lg text-center">
       <h1 class="text-4xl font-bold mb-2" data-aos="fade-down">Rumah Idaman Anda Menanti!</h1>
       <p class="text-lg" data-aos="fade-up">Dijual cepat! Lokasi strategis dan siap huni.</p>
     </header>
@@ -29,6 +34,37 @@
         </div>
       </div>
 
+      <section class="mt-16 max-w-md mx-auto bg-white rounded-2xl shadow-xl p-8 space-y-6" data-aos="fade-up">
+        <h3 class="text-2xl font-semibold text-center text-emerald-800">Masuk ke Akun Anda</h3>
+        <form class="space-y-4">
+          <div>
+            <label class="block text-gray-700 font-medium mb-1">Username</label>
+            <input type="text" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Masukkan username" required />
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-1">Password</label>
+            <input type="password" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Masukkan password" required />
+          </div>
+          <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-3 rounded-lg transition-all">Login</button>
+        </form>
+        <p class="text-center text-sm text-gray-600">Belum punya akun? <a href="#" class="text-emerald-700 hover:underline">Daftar di sini</a></p>
+      </section>
+      <script>
+        // Contoh handler form login
+        document.querySelector("form").addEventListener("submit", function (e) {
+          e.preventDefault();
+          const username = this.querySelector('input[type="text"]').value;
+          const password = this.querySelector('input[type="password"]').value;
+          
+          if (username === "admin" && password === "admin123") {
+            alert("Login berhasil!");
+            // Redirect atau simpan ke sessionStorage jika diperlukan
+          } else {
+            alert("Username atau password salah.");
+          }
+        });
+      </script>
+      
       <section class="mt-10 space-y-4" data-aos="fade-up">
         <h2 class="text-3xl font-bold">Rumah 2 Lantai di Jakarta Timur</h2>
         <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
