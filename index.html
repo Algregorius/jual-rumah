@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rumah Dijual – Albeniz Property</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      html { scroll-behavior: smooth; }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <header class="bg-blue-700 text-white py-12 shadow-lg text-center">
+      <h1 class="text-4xl font-bold mb-2" data-aos="fade-down">Rumah Idaman Anda Menanti!</h1>
+      <p class="text-lg" data-aos="fade-up">Dijual cepat! Lokasi strategis dan siap huni.</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-10">
+      <div class="relative rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in">
+        <div class="overflow-hidden rounded-lg">
+          <img id="slider" src="IMG-20240107-WA0002.jpg" class="w-full object-cover h-96 transition-all duration-700 ease-in-out">
+        </div>
+        <div class="absolute top-1/2 w-full flex justify-between px-6 -translate-y-1/2">
+          <button onclick="prevImage()" class="bg-black/50 text-white px-3 py-1 rounded-full">&larr;</button>
+          <button onclick="nextImage()" class="bg-black/50 text-white px-3 py-1 rounded-full">&rarr;</button>
+        </div>
+      </div>
+
+      <section class="mt-10 space-y-4" data-aos="fade-up">
+        <h2 class="text-3xl font-bold">Rumah 2 Lantai di Jakarta Timur</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
+          <li><strong>Harga:</strong> Rp 2.900.000.000</li>
+          <li><strong>Luas Tanah:</strong> 274 m²</li>
+          <li><strong>Luas Bangunan:</strong> 230 m²</li>
+          <li><strong>Kamar Tidur:</strong> 5</li>
+          <li><strong>Kamar Mandi:</strong> 3</li>
+          <li><strong>Lokasi:</strong> Jl. Kayu Manis 1, Matraman, Jakarta Timur</li>
+        </ul>
+      </section>
+
+      <div class="mt-10" data-aos="fade-up">
+        <button onclick="hubungiPenjual()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-lg transition">
+          Hubungi via WhatsApp
+        </button>
+      </div>
+
+      <section class="mt-12" data-aos="fade-up">
+        <h3 class="text-2xl font-semibold mb-6">Tertarik? Kirim Pesan Langsung</h3>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfqptD2H8BzE9a3kj5gAX9xjRj-X9V1Vb1WxvhrZ82wRlx7Vw/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </section>
+    </main>
+
+    <footer class="bg-gray-200 text-center py-6 mt-10 text-sm">
+      &copy; 2025 Albeniz Property. Semua Hak Dilindungi.
+    </footer>
+
+    <script>
+      const images = [
+        "IMG-20240107-WA0002.jpg",
+        "IMG-20240107-WA0003.jpg",
+        "IMG-20240107-WA0004.jpg",
+        "IMG-20240107-WA0005.jpg",
+        "IMG-20240107-WA0006.jpg",
+        "IMG-20240107-WA0007.jpg",
+        "IMG-20240107-WA0008.jpg",
+        "IMG-20240107-WA0009.jpg",
+        "IMG-20240107-WA0014.jpg"
+      ];
+      let current = 0;
+      const slider = document.getElementById('slider');
+
+      function showImage(index) {
+        slider.src = images[index];
+      }
+
+      function nextImage() {
+        current = (current + 1) % images.length;
+        showImage(current);
+      }
+
+      function prevImage() {
+        current = (current - 1 + images.length) % images.length;
+        showImage(current);
+      }
+
+      setInterval(nextImage, 5000);
+
+      function hubungiPenjual() {
+        const phone = "6285174075420";
+        const pesan = encodeURIComponent("Halo, saya tertarik dengan rumah yang Anda jual. Apakah masih tersedia?");
+        window.open(`https://wa.me/${phone}?text=${pesan}`, "_blank");
+      }
+
+      AOS.init();
+    </script>
+  </body>
+</html>
